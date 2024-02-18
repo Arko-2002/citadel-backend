@@ -11,28 +11,28 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-// app.use((req, res, next) => {
-//   // Allow requests from specific origin
-//   res.setHeader(
-//     'Access-Control-Allow-Origin',
-//     'http://citadel-front.netlify.app/'
-//   );
+app.use((req, res, next) => {
+  // Allow requests from specific origin
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'http://citadel-front.netlify.app/'
+  );
 
-//   // Allow specific methods
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  // Allow specific methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
-//   // Allow specific headers
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  // Allow specific headers
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-//   // Allow credentials
-//   res.setHeader('Access-Control-Allow-Credentials', 'true');
+  // Allow credentials
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
-//   // Proceed to the next middleware
-//   next();
-// });
-app.use(
-  cors({ origin: 'http://citadel-front.netlify.app/', credentials: true })
-);
+  // Proceed to the next middleware
+  next();
+});
+// app.use(
+//   cors({ origin: 'http://citadel-front.netlify.app/', credentials: true })
+// );
 app.use(express.json());
 app.use(cookieParser());
 
