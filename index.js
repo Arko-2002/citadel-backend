@@ -10,7 +10,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(
+  cors({ origin: 'https://citadel-front.netlify.app/', credentials: true })
+);
 app.use(express.json());
 app.use(cookieParser());
 
